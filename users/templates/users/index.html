@@ -4,8 +4,28 @@
     <title>Пользователи</title>
   </head>
   <body>
-    <!-- (сюда писать решение) -->
-    
-    <!-- (конец решения) -->
+    <h1>Пользователи</h1>
+    <table>
+      <tr>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+      {% for user in users %}
+      <tr>
+        <td>{{ user.username }}</td>
+        <td>
+          <a href="/users/{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</a>
+        </td>
+        <td>{{ user.email }}</td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <div>
+      <a href="/users?page={{ page - 1 }}&limit={{ limit }}" {% if page == 1 %} style="visibility: hidden;" {% endif %}>Previous</a>
+      <span>Page {{ page }}</span>
+      <a href="/users?page={{ page + 1 }}&limit={{ limit }}" {% if page * limit >= total_users %} style="visibility: hidden;" {% endif %}>Next</a>
+    </div>
   </body>
 </html>

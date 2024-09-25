@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Пользователь</title>
+    <title>Пользователь {{ user.username }}</title>
   </head>
   <body>
-    <!-- (сюда писать решение) -->
-    
-    <!-- (конец решения) -->
+    <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+    <p>Email: {{ user.email }}</p>
+    <p>Username: {{ user.username }}</p>
+    <a href="/users">Назад к списку пользователей</a>
   </body>
 </html>
